@@ -69,7 +69,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -77,11 +77,11 @@
 
         layer_1 {
             bindings = <
-&kp F1         &kp F2               &kp F3              &kp F4        &kp F5        &kp F6          &kp F7          &kp F8          &kp F9        &kp F10    &kp F11                &kp F12
-&kp LS(GRAVE)  &kp NUMBER_6         &kp NUMBER_7        &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &none           &none           &none         &none      &kp LS(RIGHT_BRACKET)  &kp RIGHT_BRACKET
-&kp CAPSLOCK   &kp LS(PRINTSCREEN)  &kp LC(LA(DELETE))  &none         &none         &kp GRAVE       &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp LS(BACKSLASH)      &kp LS(EQUAL)
-&none          &none                &none               &mkp MB3      &mkp MB4      &mkp MB5        &none           &none           &none         &none      &kp BACKSLASH          &kp EQUAL
-                                                        &none         &none         &none           &none           &kp DELETE
+&kp F1         &kp F2        &kp F3               &kp F4              &kp F5        &kp F6          &kp F7          &kp F8          &kp F9        &kp F10    &kp F11                &kp F12
+&kp LS(GRAVE)  &kp NUMBER_6  &kp NUMBER_7         &kp NUMBER_8        &kp NUMBER_9  &kp NUMBER_0    &none           &none           &none         &none      &kp LS(RIGHT_BRACKET)  &kp RIGHT_BRACKET
+&kp CAPSLOCK   &none         &kp LS(PRINTSCREEN)  &kp LA(LC(DELETE))  &none         &kp GRAVE       &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp LS(BACKSLASH)      &kp LS(EQUAL)
+&none          &none         &none                &mkp MB3            &mkp MB4      &mkp MB5        &none           &none           &none         &none      &kp BACKSLASH          &kp EQUAL
+                                                  &none               &none         &none           &none           &kp DELETE
                                                                       &none         &none           &none
             >;
         };
