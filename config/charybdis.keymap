@@ -11,8 +11,14 @@
 
 &lt {
     tapping-term-ms = <200>;
-    flavor = "balanced";
-    quick-tap-ms = <150>;
+    flavor = "tap-preferred";
+    quick-tap-ms = <170>;
+};
+
+&mt {
+    quick-tap-ms = <200>;
+    flavor = "tap-preferred";
+    tapping-term-ms = <170>;
 };
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
@@ -53,6 +59,36 @@
     };
 
     behaviors {
+         // Hold-tap behavior for layer with tap-preferred
+
+        blt: blt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <100>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        // Tap-dance for GUI/Ctrl+B
+
+        gui_ctrlb: gui_ctrlb {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LGUI>, <&kp LC(B)>;
+        };
+
+        // Tap/hold Alt, double-tap Ctrl+Shift+Z
+
+        lalt_dt: lalt_dt {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LALT>, <&kp LC(LS(Z))>;
+        };
+
         // Home row mods - Left hand
 
         hml: home_row_mod_left {
@@ -161,6 +197,20 @@
                 <&macro_release>,
                 <&mkp LCLK &kp LCTRL &kp LGUI>;
         };
+
+        screen: screen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PRINTSCREEN>;
+            label = "SCREEN";
+        };
+
+        lock: lock {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LA(DELETE))>;
+            label = "LOCK";
+        };
     };
 
     combos {
@@ -185,7 +235,7 @@
 &kp ESC         &kp N1  &kp N2  &kp N3                      &kp N4              &kp N5      &kp N6              &kp N7                       &kp N8     &kp N9      &kp N0    &kp EQUAL
 &kp TAB         &kp Q   &kp W   &kp E                       &kp R               &kp T       &kp Y               &kp U                        &kp I      &kp O       &kp P     &kp RIGHT_BRACKET
 &kp LEFT_SHIFT  &kp A   &kp S   &kp D                       &kp F               &kp G       &kp H               &kp J                        &kp K      &kp L       &kp SEMI  &kp SQT
-&kp LEFT_ALT    &kp Z   &kp X   &kp C                       &kp V               &kp B       &kp N               &kp M                        &kp COMMA  &kp PERIOD  &kp FSLH  &kp MINUS
+&kp LEFT_ALT    &hml LGUI Z  &hml LALT X  &hml LCTRL C   &hml LSHIFT V               &kp B       &kp N               &hmr RSHIFT M                        &hmr RCTRL COMMA  &hmr RALT PERIOD  &hmr RGUI FSLH  &kp MINUS
                                 &mt LEFT_CONTROL BACKSPACE  &lt 1 SPACE         &mkp MB1    &lt 1 SPACE         &mt RIGHT_CONTROL BACKSPACE
                                                             &mt LEFT_GUI ENTER  &mkp MB2    &mt LEFT_GUI ENTER
             >;
