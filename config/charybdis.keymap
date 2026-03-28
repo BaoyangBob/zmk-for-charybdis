@@ -156,6 +156,23 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        tap_mkp_hold_mo: tap_mkp_hold_mo {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        tap_mkp_hold_mkp: t_mkp_h_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mkp>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
@@ -257,17 +274,17 @@
 
         base {
             bindings = <
-&gresc     &mt LS(N1) N1    &mt LS(N2) N2    &mt LS(N3) N3        &mt LS(NUMBER_4) NUMBER_4  &mt LS(N5) N5    &mt LS(N6) N6       &mt LS(N7) N7       &mt LS(N8) N8         &mt LS(N9) N9          &mt LS(N0) N0                &mt LS(EQUAL) EQUAL
-&kp TAB    &hml LEFT_GUI Q  &hml LEFT_ALT W  &hml LEFT_CONTROL E  &hml LEFT_SHIFT R          &kp T            &kp Y               &hmr RIGHT_SHIFT U  &hmr RIGHT_CONTROL I  &hmr RIGHT_ALT O       &hmr RIGHT_GUI P             &mt LS(RIGHT_BRACKET) RIGHT_BRACKET
-&td_cs     &kp A            &kp S            &kp D                &kp F                      &kp G            &mt HOME H          &mt PAGE_DOWN J     &mt PAGE_UP K         &mt END L              &mt RS(SEMICOLON) SEMICOLON  &mt LS(SQT) SQT
-&kp LCTRL  &kp Z            &kp X            &kp C                &kp V                      &kp B            &kp N               &kp M               &mt LS(COMMA) COMMA   &mt LS(PERIOD) PERIOD  &mt LS(FSLH) FSLH            &mt LS(MINUS) MINUS
-                                             &kp BACKSPACE        &kp SPACE                  &mo 1            &lt 1 SPACE         &kp BACKSPACE
-                                                                  &kp ENTER                  &mkp MB1         &mt LEFT_GUI ENTER
+&gresc     &mt LS(N1) N1    &mt LS(N2) N2    &mt LS(N3) N3        &mt LS(NUMBER_4) NUMBER_4  &mt LS(N5) N5                &mt LS(N6) N6  &mt LS(N7) N7       &mt LS(N8) N8         &mt LS(N9) N9          &mt LS(N0) N0                &mt LS(EQUAL) EQUAL
+&kp TAB    &hml LEFT_GUI Q  &hml LEFT_ALT W  &hml LEFT_CONTROL E  &hml LEFT_SHIFT R          &kp T                        &kp Y          &hmr RIGHT_SHIFT U  &hmr RIGHT_CONTROL I  &hmr RIGHT_ALT O       &hmr RIGHT_GUI P             &mt LEFT_BRACKET RIGHT_BRACKET
+&td_cs     &kp A            &kp S            &kp D                &kp F                      &kp G                        &mt HOME H     &mt PAGE_DOWN J     &mt PAGE_UP K         &mt END L              &mt RS(SEMICOLON) SEMICOLON  &mt LS(SQT) SQT
+&kp LCTRL  &kp Z            &kp X            &kp C                &kp V                      &kp B                        &kp N          &kp M               &mt LS(COMMA) COMMA   &mt LS(PERIOD) PERIOD  &mt BACKSLASH FSLH           &mt LS(MINUS) MINUS
+                                             &kp BACKSPACE        &kp SPACE                  &tap_mkp_hold_mo 1 MB1       &lt 1 SPACE    &kp BACKSPACE
+                                                                  &kp ENTER                  &tap_mkp_hold_mkp MB2 MB3    &kp ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
