@@ -146,6 +146,16 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RSFT|MOD_RCTL|MOD_RALT|MOD_RGUI)>;
         };
+
+        tap_key_hold_mouse: tap_kp_hold_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "tap key, hold mouse key";
+            bindings = <&mkp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
@@ -247,17 +257,17 @@
 
         base {
             bindings = <
-&gresc     &kp N1           &kp N2           &kp N3               &kp N4             &kp N5      &kp N6              &kp N7              &kp N8                &kp N9            &kp N0                    &kp EQUAL
-&kp TAB    &kp Q            &kp W            &kp E                &kp R              &kp T       &kp Y               &kp U               &kp I                 &kp O             &kp P                     &kp RIGHT_BRACKET
-&td_cs     &hml LEFT_WIN A  &hml LEFT_ALT S  &hml LEFT_CONTROL D  &hml LEFT_SHIFT F  &kp G       &kp H               &hmr RIGHT_SHIFT J  &hmr RIGHT_CONTROL K  &hmr RIGHT_ALT L  &hmr RIGHT_GUI SEMICOLON  &kp SQT
-&kp LCTRL  &hml LGUI Z      &hml LALT X      &hml LCTRL C         &hml LSHIFT V      &kp B       &kp N               &hmr RSHIFT M       &hmr RCTRL COMMA      &hmr RALT PERIOD  &hmr RGUI FSLH            &kp MINUS
-                                             &kp BACKSPACE        &kp SPACE          &mo 1       &lt 1 SPACE         &kp BACKSPACE
-                                                                  &kp ENTER          &mkp MB1    &mt LEFT_GUI ENTER
+&gresc     &mt LS(N1) N1    &mt LS(N2) N2    &mt LS(N3) N3        &mt LS(NUMBER_4) NUMBER_4  &mt LS(N5) N5    &mt LS(N6) N6       &mt LS(N7) N7       &mt LS(N8) N8         &mt LS(N9) N9          &mt LS(N0) N0                &mt LS(EQUAL) EQUAL
+&kp TAB    &hml LEFT_GUI Q  &hml LEFT_ALT W  &hml LEFT_CONTROL E  &hml LEFT_SHIFT R          &kp T            &kp Y               &hmr RIGHT_SHIFT U  &hmr RIGHT_CONTROL I  &hmr RIGHT_ALT O       &hmr RIGHT_GUI P             &mt LS(RIGHT_BRACKET) RIGHT_BRACKET
+&td_cs     &kp A            &kp S            &kp D                &kp F                      &kp G            &mt HOME H          &mt PAGE_DOWN J     &mt PAGE_UP K         &mt END L              &mt RS(SEMICOLON) SEMICOLON  &mt LS(SQT) SQT
+&kp LCTRL  &kp Z            &kp X            &kp C                &kp V                      &kp B            &kp N               &kp M               &mt LS(COMMA) COMMA   &mt LS(PERIOD) PERIOD  &mt LS(FSLH) FSLH            &mt LS(MINUS) MINUS
+                                             &kp BACKSPACE        &kp SPACE                  &mo 1            &lt 1 SPACE         &kp BACKSPACE
+                                                                  &kp ENTER                  &mkp MB1         &mt LEFT_GUI ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
