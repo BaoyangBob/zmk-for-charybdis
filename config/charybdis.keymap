@@ -36,6 +36,10 @@
     trigger-period-ms = <16>;
 };
 
+&sl { release-after-ms = <2000>; };
+
+&sk { release-after-ms = <2000>; };
+
 / {
     // 上下滚动编码器行为
 
@@ -307,7 +311,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
