@@ -200,6 +200,15 @@
             tapping-term-ms = <200>;
             flavor = "balanced";
         };
+
+        tap_gresc_hold_kp: tap_gresc_hold_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_GRESC_HOLD_KP";
+            bindings = <&kp>, <&gresc>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     macros {
@@ -311,7 +320,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
