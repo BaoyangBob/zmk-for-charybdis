@@ -226,6 +226,16 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <125>;
         };
+
+        mice_key: tap_mice_hold_key {
+            compatible = "zmk,behavior-hold-tap";
+            label = "tap_mice_hold_key";
+            bindings = <&kp>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
@@ -327,17 +337,17 @@
 
         base {
             bindings = <
-&mt2 LS(GRAVE) ESCAPE              &mt2 LS(N1) N1     &mt2 LS(N2) N2     &mt2 LS(N3) N3               &mt2 LS(NUMBER_4) NUMBER_4  &mt2 LS(N5) N5      &mt2 LS(N6) N6             &mt2 LS(N7) N7      &mt2 LS(N8) N8        &mt2 LS(N9) N9           &mt2 LS(N0) N0                &mt2 LS(EQUAL) EQUAL
-&mt2 GRAVE TAB                     &mt2 LEFT_ARROW Q  &mt2 DOWN_ARROW W  &mt2 UP_ARROW E              &mt2 RIGHT_ARROW R          &kp T               &kp Y                      &mt2 BACKSLASH U    &mt2 LS(BACKSLASH) I  &mt2 LS(LEFT_BRACKET) O  &mt2 LEFT_BRACKET P           &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
-&td_cs                             &hml LEFT_GUI A    &hml LEFT_ALT S    &hml LEFT_CONTROL D          &hml LEFT_SHIFT F           &mt2 ENTER G        &mt2 RS(SEMICOLON) H       &hmr RIGHT_SHIFT J  &hmr RIGHT_CONTROL K  &hmr RIGHT_ALT L         &hmr RS(RIGHT_GUI) SEMICOLON  &mt2 LS(SQT) SQT
-&mt2 LS(PRINTSCREEN) LEFT_CONTROL  &kp Z              &kp X              &kp C                        &kp V                       &kp B               &mt2 INSERT N              &kp M               &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD   &mt2 LS(SLASH) SLASH          &mt2 LS(MINUS) MINUS
-                                                                         &mt2 LEFT_CONTROL BACKSPACE  &kp_sl 1 SPACE              &mkp MB1            &mt2 LC(LA(DELETE)) SPACE  &kp BACKSPACE
-                                                                                                      &kp ENTER                   &mkp_mkp MB2 MB3    &kp ENTER
+&mt2 LS(GRAVE) ESCAPE              &mt2 LS(N1) N1     &mt2 LS(N2) N2     &mt2 LS(N3) N3       &mt2 LS(NUMBER_4) NUMBER_4  &mt2 LS(N5) N5          &mt2 LS(N6) N6             &mt2 LS(N7) N7      &mt2 LS(N8) N8        &mt2 LS(N9) N9           &mt2 LS(N0) N0                &mt2 LS(EQUAL) EQUAL
+&mt2 GRAVE TAB                     &mt2 LEFT_ARROW Q  &mt2 DOWN_ARROW W  &mt2 UP_ARROW E      &mt2 RIGHT_ARROW R          &kp T                   &kp Y                      &mt2 BACKSLASH U    &mt2 LS(BACKSLASH) I  &mt2 LS(LEFT_BRACKET) O  &mt2 LEFT_BRACKET P           &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
+&kp_sk LEFT_SHIFT LEFT_SHIFT       &hml LEFT_GUI A    &hml LEFT_ALT S    &hml LEFT_CONTROL D  &hml LEFT_SHIFT F           &mt2 ENTER G            &mt2 RS(SEMICOLON) H       &hmr RIGHT_SHIFT J  &hmr RIGHT_CONTROL K  &hmr RIGHT_ALT L         &hmr RS(RIGHT_GUI) SEMICOLON  &mt2 LS(SQT) SQT
+&mt2 LS(PRINTSCREEN) LEFT_CONTROL  &kp Z              &kp X              &kp C                &kp V                       &kp B                   &mt2 INSERT N              &kp M               &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD   &mt2 LS(SLASH) SLASH          &mt2 LS(MINUS) MINUS
+                                                                         &kp BACKSPACE        &kp_sl 1 SPACE              &mice_key ESCAPE MB1    &mt2 LC(LA(DELETE)) SPACE  &kp BACKSPACE
+                                                                                              &kp ENTER                   &mkp_mkp MB2 MB3        &kp ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
