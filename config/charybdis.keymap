@@ -139,7 +139,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&sk LEFT_SHIFT>, <&double_shift>, <&kp CAPSLOCK>;
+            bindings = <&kp LEFT_SHIFT>, <&double_shift>, <&kp CAPSLOCK>;
         };
 
         graesc: grave_escape {
@@ -337,7 +337,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
