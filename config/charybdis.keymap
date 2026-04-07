@@ -347,7 +347,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -359,7 +359,7 @@
 &kp GRAVE            &kp LC(Q)  &kp LC(W)  &kp LC(E)   &kp LC(R)      &kp LC(T)             &none           &none           &none         &none      &none          &none
 &kp CAPSLOCK         &kp LC(A)  &kp LC(S)  &kp LC(D)   &kp LC(F)      &kp LC(G)             &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none          &none
 &kp LS(PRINTSCREEN)  &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V)      &kp LC(B)             &kp LC(N)       &kp LC(M)       &none         &none      &kp LC(SLASH)  &none
-                                           &kp DELETE  &none          &kp LA(LC(DELETE))    &none           &kp DELETE
+                                           &kp DELETE  &none          &kp LA(LC(DELETE))    &kp INSERT      &kp DELETE
                                                        &kp LC(ENTER)  &none                 &kp LC(ENTER)
             >;
         };
