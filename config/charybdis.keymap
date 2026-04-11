@@ -357,12 +357,12 @@
 &kp BACKSPACE         &kp A           &kp S           &kp D           &kp F                       &kp G                            &kp H                         &kp J             &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON  &mt2 LS(SQT) SQT
 &mt2 LS(ENTER) ENTER  &kp Z           &kp X           &kp C           &kp V                       &kp B                            &kp N                         &kp M             &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(SLASH) SLASH          &mt2 LS(MINUS) MINUS
                                                       &kp_sl 1 SPACE  &hr LEFT_WIN LEFT_WIN       &hr LEFT_CONTROL LEFT_CONTROL    &mice_key LA(LC(DELETE)) MB1  &mkp_mkp MB2 MB3
-                                                                      &hr LEFT_ALT LEFT_ALT       &hr LEFT_SHIFT LEFT_SHIFT        &kp ENTER
+                                                                      &hr LEFT_ALT LEFT_ALT       &hr LEFT_SHIFT LEFT_SHIFT        &mt2 LC(ENTER) ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
