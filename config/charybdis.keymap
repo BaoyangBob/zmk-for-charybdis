@@ -238,6 +238,19 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        home_row_mod: home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&sk>, <&kp>;
+
+            hold-trigger-on-release;
+            label = "HOME_ROW_MOD";
+        };
     };
 
     macros {
@@ -339,17 +352,17 @@
 
         base {
             bindings = <
-&mt2 GRAVE ESCAPE           &mt2 LS(N1) N1  &mt2 LS(N2) N2  &mt2 LS(N3) N3  &mt2 LS(NUMBER_4) NUMBER_4  &mt2 LS(N5) N5      &mt2 LS(N6) N6    &mt2 LS(N7) N7  &mt2 LS(N8) N8        &mt2 LS(N9) N9          &mt2 LS(N0) N0                &mt2 LS(EQUAL) EQUAL
-&mt2 CAPSLOCK TAB           &kp Q           &kp W           &kp E           &kp R                       &kp T               &kp Y             &kp U           &kp I                 &kp O                   &kp P                         &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
-&kp ENTER                   &kp A           &kp S           &kp D           &kp F                       &kp G               &kp H             &kp J           &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON  &mt2 LS(SQT) SQT
-&mt2 LS(PRINTSCREEN) ENTER  &kp Z           &kp X           &kp C           &kp V                       &kp B               &kp N             &kp M           &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(SLASH) SLASH          &mt2 LS(MINUS) MINUS
-                                                            &kp_sl 1 SPACE  &kp LEFT_ALT                &kp LEFT_CONTROL    &mkp MB1          &kp BACKSPACE
-                                                                            &kp LEFT_WIN                &kp LEFT_SHIFT      &mkp_mkp MB2 MB3
+&mt2 GRAVE ESCAPE     &mt2 LS(N1) N1  &mt2 LS(N2) N2  &mt2 LS(N3) N3  &mt2 LS(NUMBER_4) NUMBER_4  &mt2 LS(N5) N5      &mt2 LS(N6) N6                &mt2 LS(N7) N7  &mt2 LS(N8) N8        &mt2 LS(N9) N9          &mt2 LS(N0) N0                &mt2 LS(EQUAL) EQUAL
+&mt2 CAPSLOCK TAB     &kp Q           &kp W           &kp E           &kp R                       &kp T               &kp Y                         &kp U           &kp I                 &kp O                   &kp P                         &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
+&kp BACKSPACE         &kp A           &kp S           &kp D           &kp F                       &kp G               &kp H                         &kp J           &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON  &mt2 LS(SQT) SQT
+&mt2 LS(ENTER) ENTER  &kp Z           &kp X           &kp C           &kp V                       &kp B               &kp N                         &kp M           &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(SLASH) SLASH          &mt2 LS(MINUS) MINUS
+                                                      &kp_sl 1 SPACE  &kp LEFT_WIN                &kp LEFT_CONTROL    &mice_key LA(LC(DELETE)) MB1  &kp BACKSPACE
+                                                                      &kp LEFT_ALT                &kp LEFT_SHIFT      &mkp_mkp MB2 MB3
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -357,12 +370,12 @@
 
         layer_1 {
             bindings = <
-&kp F1               &kp F2     &kp F3     &kp F4      &kp F5         &kp F6                &kp F7          &kp F8          &kp F9        &kp F10    &kp F11        &kp F12
-&kp GRAVE            &kp LC(Q)  &kp LC(W)  &kp LC(E)   &kp LC(R)      &kp LC(T)             &none           &none           &none         &none      &none          &none
-&kp CAPSLOCK         &kp LC(A)  &kp LC(S)  &kp LC(D)   &kp LC(F)      &kp LC(G)             &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none          &none
-&kp LS(PRINTSCREEN)  &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V)      &kp LC(B)             &kp LC(N)       &kp LC(M)       &none         &none      &kp LC(SLASH)  &none
-                                           &kp DELETE  &none          &kp LA(LC(DELETE))    &kp INSERT      &kp DELETE
-                                                       &kp LC(ENTER)  &none                 &kp LC(ENTER)
+&kp F1               &kp F2  &kp F3  &kp F4  &kp F5         &kp F6    &kp F7          &kp F8          &kp F9        &kp F10    &kp F11                       &kp F12
+&kp CAPSLOCK         &trans  &trans  &trans  &trans         &trans    &none           &none           &none         &none      &none                         &mt2 LS(LEFT_BRACKET) LEFT_BRACKET
+&kp LS(PRINTSCREEN)  &trans  &trans  &trans  &trans         &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none                         &none
+&kp LA(LC(DELETE))   &trans  &trans  &trans  &trans         &trans    &trans          &trans          &none         &none      &mt2 LS(BACKSLASH) BACKSLASH  &none
+                                     &trans  &trans         &trans    &kp INSERT      &kp DELETE
+                                             &kp LC(ENTER)  &trans    &kp LC(ENTER)
             >;
         };
     };
