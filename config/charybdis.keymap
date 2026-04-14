@@ -345,6 +345,26 @@
             key-positions = <53 54 55>;
             bindings = <&studio_unlock>;
         };
+
+        unlocker {
+            bindings = <&kp LA(LC(DELETE))>;
+            key-positions = <48 49 50 53 54>;
+        };
+
+        sender {
+            bindings = <&kp LC(ENTER)>;
+            key-positions = <53 49>;
+        };
+
+        mb1 {
+            bindings = <&mkp MB3>;
+            key-positions = <48 50 54>;
+        };
+
+        mouse {
+            bindings = <&mkp_mkp MB2 MB1>;
+            key-positions = <50 54>;
+        };
     };
 
     keymap {
@@ -362,7 +382,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -370,12 +390,12 @@
 
         layer_1 {
             bindings = <
-&kp F1               &kp F2       &kp F3               &kp F4         &kp F5  &kp F6    &kp F7                        &kp F8          &kp F9        &kp F10    &kp F11                       &kp F12
-&kp LS(GRAVE)        &kp PAGE_UP  &kp UP               &kp PAGE_DOWN  &trans  &trans    &trans                        &trans          &trans        &trans     &trans                        &mt2 LS(LEFT_BRACKET) LEFT_BRACKET
-&kp CAPSLOCK         &kp LEFT     &kp DOWN             &kp RIGHT      &trans  &trans    &kp LEFT_ARROW                &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none                         &none
-&kp LS(PRINTSCREEN)  &kp HOME     &kp LS(PRINTSCREEN)  &kp END        &trans  &trans    &trans                        &trans          &none         &none      &mt2 LS(BACKSLASH) BACKSLASH  &none
-                                                       &trans         &trans  &trans    &mice_key LA(LC(DELETE)) MB1  &kp DELETE
-                                                                      &trans  &trans    &mkp_mkp MB3 MB3
+&kp F1               &kp F2       &kp F3    &kp F4         &kp F5  &kp F6    &kp F7                        &kp F8          &kp F9        &kp F10    &kp F11                       &kp F12
+&kp LS(GRAVE)        &kp PAGE_UP  &kp UP    &kp PAGE_DOWN  &trans  &trans    &trans                        &trans          &trans        &trans     &trans                        &mt2 LS(LEFT_BRACKET) LEFT_BRACKET
+&kp CAPSLOCK         &kp LEFT     &kp DOWN  &kp RIGHT      &trans  &trans    &kp LEFT_ARROW                &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none                         &none
+&kp LS(PRINTSCREEN)  &kp HOME     &trans    &kp END        &trans  &trans    &trans                        &trans          &none         &none      &mt2 LS(BACKSLASH) BACKSLASH  &none
+                                            &trans         &trans  &trans    &mice_key LA(LC(DELETE)) MB1  &kp DELETE
+                                                           &trans  &trans    &mkp_mkp MB3 MB3
             >;
         };
     };
