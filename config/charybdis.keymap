@@ -357,12 +357,12 @@
 &kp_sk LEFT_SHIFT LEFT_SHIFT  &kp A           &kp S           &kp D               &kp F                       &kp G                        &kp H                      &kp J           &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON  &mt2 LS(SQT) SQT
 &mt2 LS(ENTER) ENTER          &kp Z           &kp X           &kp C               &kp V                       &kp B                        &kp N                      &kp M           &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(SLASH) SLASH          &mt2 LS(MINUS) MINUS
                                                               &kp_sl 1 BACKSPACE  &hr LEFT_CONTROL SPACE      &hr LEFT_SHIFT LEFT_SHIFT    &mt2 LA(LC(DELETE)) SPACE  &kp BACKSPACE
-                                                                                  &hr LEFT_GUI ENTER          &hr LEFT_ALT LEFT_ALT        &mt2 LC(ENTER) ENTER
+                                                                                  &hr LEFT_GUI ENTER          &hr LEFT_ALT LEFT_ALT        &hr LC(ENTER) ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -371,7 +371,7 @@
         layer_1 {
             bindings = <
 &kp F1               &kp F2       &kp F3               &kp F4         &kp F5  &kp F6    &kp F7                        &kp F8          &kp F9        &kp F10    &kp F11                       &kp F12
-&kp CAPSLOCK         &kp PAGE_UP  &kp UP               &kp PAGE_DOWN  &trans  &trans    &trans                        &trans          &trans        &trans     &trans                        &mt2 LS(LEFT_BRACKET) LEFT_BRACKET
+&kp LS(GRAVE)        &kp PAGE_UP  &kp UP               &kp PAGE_DOWN  &trans  &trans    &trans                        &trans          &trans        &trans     &trans                        &mt2 LS(LEFT_BRACKET) LEFT_BRACKET
 &kp CAPSLOCK         &kp LEFT     &kp DOWN             &kp RIGHT      &trans  &trans    &kp LEFT_ARROW                &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none                         &none
 &kp LS(PRINTSCREEN)  &kp HOME     &kp LS(PRINTSCREEN)  &kp END        &trans  &trans    &trans                        &trans          &none         &none      &mt2 LS(BACKSLASH) BACKSLASH  &none
                                                        &trans         &trans  &trans    &mice_key LA(LC(DELETE)) MB1  &kp DELETE
