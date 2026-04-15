@@ -342,7 +342,7 @@
 
         ps {
             bindings = <&kp LS(PRINTSCREEN)>;
-            key-positions = <48 49 50 53 54>;
+            key-positions = <37 38 39 40>;
             timeout-ms = <100>;
         };
 
@@ -360,7 +360,13 @@
 
         mb12 {
             bindings = <&mkp_mkp MB2 MB1>;
-            key-positions = <48 49 53>;
+            key-positions = <50 54>;
+            timeout-ms = <100>;
+        };
+
+        caps {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <25 26 27 28>;
             timeout-ms = <100>;
         };
     };
@@ -380,7 +386,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
