@@ -340,7 +340,7 @@
 
         // Studio Unlock Combo - all three right thumb keys
 
-        unlocker {
+        ps {
             bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 49 50 53 54>;
             timeout-ms = <100>;
@@ -380,7 +380,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
