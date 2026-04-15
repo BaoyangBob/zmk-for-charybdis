@@ -340,30 +340,28 @@
 
         // Studio Unlock Combo - all three right thumb keys
 
-        combo_studio_unlock {
-            timeout-ms = <50>;
-            key-positions = <53 54 55>;
-            bindings = <&studio_unlock>;
-        };
-
         unlocker {
-            bindings = <&kp LA(LC(DELETE))>;
+            bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 49 50 53 54>;
+            timeout-ms = <100>;
         };
 
         sender {
             bindings = <&kp LC(ENTER)>;
             key-positions = <53 49>;
+            timeout-ms = <100>;
         };
 
-        mb1 {
+        mb3 {
             bindings = <&mkp MB3>;
             key-positions = <48 50 54>;
+            timeout-ms = <100>;
         };
 
-        mouse {
+        mb12 {
             bindings = <&mkp_mkp MB2 MB1>;
-            key-positions = <50 54>;
+            key-positions = <48 49 53>;
+            timeout-ms = <100>;
         };
     };
 
@@ -382,7 +380,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
