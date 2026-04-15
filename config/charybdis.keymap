@@ -369,6 +369,18 @@
             key-positions = <25 26 27 28>;
             timeout-ms = <100>;
         };
+
+        shift {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <31 32 33 34>;
+            timeout-ms = <100>;
+        };
+
+        unlocker {
+            bindings = <&kp LA(LC(DELETE))>;
+            key-positions = <25 27 26 28 31 33 32 34>;
+            timeout-ms = <100>;
+        };
     };
 
     keymap {
@@ -386,7 +398,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
