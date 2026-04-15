@@ -348,19 +348,25 @@
 
         mb3 {
             bindings = <&mkp MB3>;
-            key-positions = <48 50 54>;
+            key-positions = <48 49 53>;
             timeout-ms = <100>;
         };
 
         mb1 {
             bindings = <&mkp MB1>;
-            key-positions = <48 49 53>;
+            key-positions = <48 50 54>;
             timeout-ms = <100>;
         };
 
         mb2 {
             bindings = <&mkp MB2>;
             key-positions = <50 48>;
+            timeout-ms = <100>;
+        };
+
+        sender2 {
+            bindings = <&kp LC(ENTER)>;
+            key-positions = <48 49>;
             timeout-ms = <100>;
         };
     };
@@ -380,7 +386,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
