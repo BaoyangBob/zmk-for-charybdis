@@ -251,72 +251,26 @@
             hold-trigger-on-release;
             label = "home row";
         };
+
+        macro_mt: macro_mt {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&brackets>, <&brace>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-preferred";
+            hold-trigger-on-release;
+            label = "MACRO_MT";
+        };
     };
 
     macros {
         // Ctrl+Alt+Cmd macro
-
-        CAC: CAC {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LALT &kp LGUI &macro_param_1to1>,
-                <&macro_tap>,
-                <&kp MACRO_PLACEHOLDER>,
-                <&macro_release>,
-                <&kp LCTRL &kp LALT &kp LGUI>;
-        };
-
         // Ctrl+Shift+Alt macro
-
-        CSA: CSA {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LSHIFT &kp LALT &macro_param_1to1>,
-                <&macro_tap>,
-                <&kp MACRO_PLACEHOLDER>,
-                <&macro_release>,
-                <&kp LCTRL &kp LSHIFT &kp LALT>;
-        };
-
         // Ctrl+Alt macro
-
-        CA: CA {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LALT &macro_param_1to1>,
-                <&macro_tap>,
-                <&kp MACRO_PLACEHOLDER>,
-                <&macro_release>,
-                <&kp LCTRL &kp LALT>;
-        };
-
         // Hold Ctrl+Cmd+Left Click while key is pressed (for mouse drag window actions)
-
-        ctrl_cmd_hold: ctrl_cmd_hold {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <10>;
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LGUI &mkp LCLK>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mkp LCLK &kp LCTRL &kp LGUI>;
-        };
-
-        screen: screen {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp PRINTSCREEN>;
-            label = "SCREEN";
-        };
 
         lock: lock {
             compatible = "zmk,behavior-macro";
@@ -330,6 +284,20 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
             label = "DOUBLE_SHIFT";
+        };
+
+        brace: brace {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_ARROW>;
+            label = "BRACE";
+        };
+
+        brackets: brackts {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LEFT_BRACKET) &kp LS(RIGHT_BRACKET) &kp LEFT_ARROW>;
+            label = "BRACKTS";
         };
     };
 
@@ -387,6 +355,11 @@
             key-positions = <48 49 53>;
             timeout-ms = <100>;
         };
+
+        braces {
+            bindings = <&macro_mt 0 0>;
+            key-positions = <12 23>;
+        };
     };
 
     keymap {
@@ -404,7 +377,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
