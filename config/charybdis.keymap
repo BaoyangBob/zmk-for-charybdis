@@ -332,7 +332,7 @@
             timeout-ms = <100>;
         };
 
-        esc {
+        esc1 {
             bindings = <&kp ESCAPE>;
             key-positions = <48 54 50>;
             timeout-ms = <100>;
@@ -367,6 +367,12 @@
             key-positions = <51 52 55>;
             timeout-ms = <100>;
         };
+
+        esc2 {
+            bindings = <&kp ESCAPE>;
+            key-positions = <49 54 53 50>;
+            timeout-ms = <100>;
+        };
     };
 
     keymap {
@@ -384,7 +390,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
