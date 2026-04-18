@@ -344,15 +344,27 @@
             timeout-ms = <100>;
         };
 
-        lock2 {
+        lock1 {
             bindings = <&kp LA(LC(DELETE))>;
-            key-positions = <52 51 55>;
+            key-positions = <51 55>;
             timeout-ms = <100>;
         };
 
-        ps {
+        ps1 {
             bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 49 53>;
+            timeout-ms = <100>;
+        };
+
+        ps2 {
+            bindings = <&kp LS(PRINTSCREEN)>;
+            key-positions = <51 52>;
+            timeout-ms = <100>;
+        };
+
+        caps2 {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <51 52 55>;
             timeout-ms = <100>;
         };
     };
@@ -362,17 +374,17 @@
 
         base {
             bindings = <
-&mt2 ESCAPE TAB                     &mt2 LS(N1) N1  &mt2 LS(N2) N2  &mt2 LS(N3) N3      &mt2 LS(NUMBER_4) NUMBER_4  &mt2 LS(N5) N5               &mt2 LS(N6) N6            &mt2 LS(N7) N7      &mt2 LS(N8) N8        &mt2 LS(N9) N9          &mt2 LS(N0) N0                &mt2 LS(EQUAL) EQUAL
-&mt2 LS(GRAVE) GRAVE                &kp Q           &kp W           &kp E               &kp R                       &kp T                        &kp Y                     &kp U               &kp I                 &kp O                   &kp P                         &mt2 LS(MINUS) MINUS
-&mt2 LS(SLASH) SLASH                &kp A           &kp S           &kp D               &kp F                       &kp G                        &kp H                     &kp J               &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON  &mt2 LS(SQT) SQT
-&mt2 LS(LEFT_BRACKET) LEFT_BRACKET  &kp Z           &kp X           &kp C               &kp V                       &kp B                        &kp N                     &kp M               &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(BACKSLASH) BACKSLASH  &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
-                                                                    &kp_sl 1 BACKSPACE  &hr LEFT_CONTROL SPACE      &hr LEFT_SHIFT LEFT_SHIFT    &hr LA(LC(DELETE)) SPACE  &kp_sl 1 BACKSPACE
-                                                                                        &hr LEFT_GUI ENTER          &hr LEFT_ALT LEFT_ALT        &hr LC(ENTER) ENTER
+&mt2 ESCAPE TAB                     &mt2 LS(N1) N1  &mt2 LS(N2) N2  &mt2 LS(N3) N3      &mt2 LS(NUMBER_4) NUMBER_4  &mt2 LS(N5) N5               &mt2 LS(N6) N6  &mt2 LS(N7) N7  &mt2 LS(N8) N8        &mt2 LS(N9) N9          &mt2 LS(N0) N0                &mt2 LS(EQUAL) EQUAL
+&mt2 LS(GRAVE) GRAVE                &kp Q           &kp W           &kp E               &kp R                       &kp T                        &kp Y           &kp U           &kp I                 &kp O                   &kp P                         &mt2 LS(MINUS) MINUS
+&mt2 LS(SLASH) SLASH                &kp A           &kp S           &kp D               &kp F                       &kp G                        &kp H           &kp J           &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON  &mt2 LS(SQT) SQT
+&mt2 LS(LEFT_BRACKET) LEFT_BRACKET  &kp Z           &kp X           &kp C               &kp V                       &kp B                        &kp N           &kp M           &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(BACKSLASH) BACKSLASH  &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
+                                                                    &kp_sl 1 BACKSPACE  &hr LEFT_CONTROL SPACE      &hr LEFT_SHIFT LEFT_SHIFT    &kp SPACE       &kp BACKSPACE
+                                                                                        &hr LEFT_GUI ENTER          &hr LEFT_ALT LEFT_ALT        &kp ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
