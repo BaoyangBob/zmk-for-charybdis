@@ -350,8 +350,8 @@
             timeout-ms = <100>;
         };
 
-        ps1 {
-            bindings = <&kp LS(PRINTSCREEN)>;
+        esc2 {
+            bindings = <&kp ESCAPE>;
             key-positions = <48 49 53>;
             timeout-ms = <100>;
         };
@@ -368,8 +368,8 @@
             timeout-ms = <100>;
         };
 
-        esc2 {
-            bindings = <&kp ESCAPE>;
+        ps1 {
+            bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <49 54 53 50>;
             timeout-ms = <100>;
         };
@@ -390,7 +390,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
