@@ -344,8 +344,8 @@
             timeout-ms = <100>;
         };
 
-        caps2 {
-            bindings = <&kp CAPSLOCK>;
+        lock2 {
+            bindings = <&kp LA(LC(DELETE))>;
             key-positions = <52 51 55>;
             timeout-ms = <100>;
         };
@@ -354,11 +354,6 @@
             bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 49 53>;
             timeout-ms = <100>;
-        };
-
-        braces {
-            bindings = <&macro_mt 0 0>;
-            key-positions = <12 23>;
         };
     };
 
@@ -377,7 +372,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
