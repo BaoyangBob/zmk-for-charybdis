@@ -332,15 +332,15 @@
             timeout-ms = <100>;
         };
 
-        esc1 {
-            bindings = <&kp ESCAPE>;
-            key-positions = <48 54 49 53>;
+        ps1 {
+            bindings = <&kp LS(PRINTSCREEN)>;
+            key-positions = <48 54 49 53 50>;
             timeout-ms = <100>;
         };
 
-        ps3 {
+        ps2 {
             bindings = <&kp LS(PRINTSCREEN)>;
-            key-positions = <48 54 50 49 53>;
+            key-positions = <48 54 49 53>;
             timeout-ms = <100>;
         };
 
@@ -356,7 +356,7 @@
             timeout-ms = <100>;
         };
 
-        ps2 {
+        ps3 {
             bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <51 52>;
             timeout-ms = <100>;
@@ -368,7 +368,7 @@
             timeout-ms = <100>;
         };
 
-        ps1 {
+        ps4 {
             bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 50 54 53>;
             timeout-ms = <100>;
@@ -396,7 +396,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
