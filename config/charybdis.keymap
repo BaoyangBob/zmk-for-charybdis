@@ -334,13 +334,13 @@
 
         esc1 {
             bindings = <&kp ESCAPE>;
-            key-positions = <48 54 50>;
+            key-positions = <48 54 49 53>;
             timeout-ms = <100>;
         };
 
-        caps1 {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <48 49 54 53 50>;
+        ps3 {
+            bindings = <&kp LS(PRINTSCREEN)>;
+            key-positions = <48 54 50 49 53>;
             timeout-ms = <100>;
         };
 
@@ -370,7 +370,13 @@
 
         ps1 {
             bindings = <&kp LS(PRINTSCREEN)>;
-            key-positions = <49 54 53 50>;
+            key-positions = <48 50 54 53>;
+            timeout-ms = <100>;
+        };
+
+        caps1 {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <54 50 48>;
             timeout-ms = <100>;
         };
     };
@@ -390,7 +396,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
