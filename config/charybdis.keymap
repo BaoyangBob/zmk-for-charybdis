@@ -333,20 +333,8 @@
             timeout-ms = <100>;
         };
 
-        mb1111 {
-            bindings = <&mkp MB1>;
-            key-positions = <48 50>;
-            timeout-ms = <100>;
-        };
-
-        mb2222 {
-            bindings = <&mkp MB2>;
-            key-positions = <48 54>;
-            timeout-ms = <100>;
-        };
-
         mb3 {
-            bindings = <&mkp MB3>;
+            bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 36>;
             timeout-ms = <100>;
         };
@@ -358,13 +346,13 @@
         };
 
         mb2 {
-            bindings = <&mkp MB2>;
+            bindings = <&kp DELETE>;
             key-positions = <48 12>;
             timeout-ms = <100>;
         };
 
         mb1 {
-            bindings = <&mkp MB1>;
+            bindings = <&kp CAPSLOCK>;
             key-positions = <48 24>;
             timeout-ms = <100>;
         };
@@ -386,24 +374,6 @@
             key-positions = <48 50 54>;
             timeout-ms = <100>;
         };
-
-        space {
-            bindings = <&kp SPACE>;
-            key-positions = <48 26>;
-            timeout-ms = <100>;
-        };
-
-        backspace {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <48 27>;
-            timeout-ms = <100>;
-        };
-
-        enter2 {
-            bindings = <&kp ENTER>;
-            key-positions = <48 28>;
-            timeout-ms = <100>;
-        };
     };
 
     keymap {
@@ -421,7 +391,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
