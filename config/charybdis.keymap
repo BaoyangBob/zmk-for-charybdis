@@ -421,7 +421,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -429,12 +429,12 @@
 
         layer_1 {
             bindings = <
-&kp F1      &kp F2          &kp F3          &kp F4        &kp F5           &kp F6      &kp F7          &kp F8          &kp F9        &kp F10          &kp F11   &kp F12
-&kp DELETE  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans      &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp HOME  &kp PAGE_UP
-&mkp MB1    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp END   &kp PAGE_DOWN
-&mkp MB3    &trans          &trans          &trans        &trans           &trans      &trans          &trans          &trans        &trans           &trans    &trans
-                                            &trans        &kp LC(SPACE)    &mkp MB1    &kp INSERT      &kp DELETE
-                                                          &kp LC(ENTER)    &mkp MB2    &trans
+&kp F1               &kp F2          &kp F3          &kp F4        &kp F5           &kp F6    &kp F7          &kp F8          &kp F9        &kp F10          &kp F11   &kp F12
+&kp DELETE           &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp HOME  &kp PAGE_UP
+&kp CAPSLOCK         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp END   &kp PAGE_DOWN
+&kp LS(PRINTSCREEN)  &trans          &trans          &trans        &trans           &trans    &trans          &trans          &trans        &trans           &trans    &trans
+                                                     &trans        &kp LC(SPACE)    &trans    &trans          &trans
+                                                                   &kp LC(ENTER)    &trans    &trans
             >;
         };
     };
