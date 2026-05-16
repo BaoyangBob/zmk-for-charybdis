@@ -37,373 +37,393 @@
 };
 
 / {
+    // 上下滚动编码器行为
 
-// 上下滚动编码器行为
+    scroll_vertical_encoder: scroll_vertical_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
-scroll_vertical_encoder: scroll_vertical_encoder {
-    compatible = "zmk,behavior-sensor-rotate";
-    #sensor-binding-cells = <0>;
-    bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
-    tap-ms = <100>;
-};
-
-// 左右滚动编码器行为
-
-scroll_horizontal_encoder: scroll_horizontal_encoder {
-    compatible = "zmk,behavior-sensor-rotate";
-    #sensor-binding-cells = <0>;
-    bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-
-    tap-ms = <100>;
-};
-
-behaviors {
-    // Hold-tap behavior for layer with tap-preferred
-
-    blt: blt {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <200>;
-        quick-tap-ms = <300>;
-        require-prior-idle-ms = <100>;
-        bindings = <&mo>, <&kp>;
+        tap-ms = <100>;
     };
 
-    // Tap-dance for GUI/Ctrl+B
+    // 左右滚动编码器行为
 
-    gui_ctrlb: gui_ctrlb {
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp LGUI>, <&kp LC(B)>;
+    scroll_horizontal_encoder: scroll_horizontal_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
+        tap-ms = <100>;
     };
 
-    // Tap/hold Alt, double-tap Ctrl+Shift+Z
+    behaviors {
+        // Hold-tap behavior for layer with tap-preferred
 
-    lalt_dt: lalt_dt {
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp LALT>, <&kp LC(LS(Z))>;
+        blt: blt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <100>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        // Tap-dance for GUI/Ctrl+B
+
+        gui_ctrlb: gui_ctrlb {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LGUI>, <&kp LC(B)>;
+        };
+
+        // Tap/hold Alt, double-tap Ctrl+Shift+Z
+
+        lalt_dt: lalt_dt {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LALT>, <&kp LC(LS(Z))>;
+        };
+
+        // Home row mods - Left hand
+
+        hml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&sk>, <&kp>;
+
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 53 55 54 48 49 50 51 52>; // Right side keys
+            hold-trigger-on-release;
+        };
+
+        // Home row mods - Right hand
+
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&sk>, <&kp>;
+
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 54 53 55>; // Left side keys
+            hold-trigger-on-release;
+        };
+
+        // chain sticky key modifiers
+
+        skq: sticky_key_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1000>;
+            quick-release;
+            ignore-modifiers;
+        };
+
+        // CAPSLOCK on a single tap, LSHIFT on a single press and hold, and LCTRL when the tap-dance is pressed twice
+
+        td_cs: caps_shift_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_SHIFT>, <&double_shift>, <&kp CAPSLOCK>;
+        };
+
+        graesc: grave_escape {
+            compatible = "zmk,behavior-mod-morph";
+            label = "GRAVE_ESCAPE";
+            bindings = <&kp ESCAPE>, <&kp GRAVE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RSFT|MOD_RCTL|MOD_RALT|MOD_RGUI)>;
+        };
+
+        tap_key_hold_mouse: tap_kp_hold_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "tap key, hold mouse key";
+            bindings = <&mkp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        mkp_mo: tap_mkp_hold_mo {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&sl>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            flavor = "balanced";
+        };
+
+        mkp_mkp: t_mkp_h_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mkp>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "balanced";
+        };
+
+        mt2: mod_tap_v2 {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-preferred";
+            hold-trigger-on-release;
+        };
+
+        kp_sl: tap_kp_hold_sl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_KP_HOLD_SL";
+            bindings = <&sl>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            flavor = "balanced";
+            quick-tap-ms = <500>;
+            require-prior-idle-ms = <125>;
+            hold-trigger-on-release;
+        };
+
+        tap_gresc_hold_kp: tap_gresc_hold_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_GRESC_HOLD_KP";
+            bindings = <&kp>, <&gresc>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <200>;
+            flavor = "balanced";
+        };
+
+        kp_sk: tap_kp_hold_sk {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_KP_HOLD_SK";
+            bindings = <&sk>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            hold-trigger-on-release;
+        };
+
+        mice_key: tap_mice_hold_key {
+            compatible = "zmk,behavior-hold-tap";
+            label = "tap_mice_hold_key";
+            bindings = <&kp>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        hr: home_row {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <500>;
+            bindings = <&sk>, <&kp>;
+
+            hold-trigger-on-release;
+            label = "home row";
+        };
+
+        macro_mt: macro_mt {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&brackets>, <&brace>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-preferred";
+            hold-trigger-on-release;
+            label = "MACRO_MT";
+        };
+
+        mo_sl: mo_sl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_SL";
+            bindings = <&sl>, <&mo>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            flavor = "balanced";
+            quick-tap-ms = <500>;
+            require-prior-idle-ms = <125>;
+            hold-trigger-on-release;
+        };
     };
 
-    // Home row mods - Left hand
+    macros {
+        // Ctrl+Alt+Cmd macro
+        // Ctrl+Shift+Alt macro
+        // Ctrl+Alt macro
+        // Hold Ctrl+Cmd+Left Click while key is pressed (for mouse drag window actions)
 
-    hml: home_row_mod_left {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        require-prior-idle-ms = <125>;
-        tapping-term-ms = <280>;
-        quick-tap-ms = <175>;
-        bindings = <&sk>, <&kp>;
+        lock: lock {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LA(DELETE))>;
+            label = "LOCK";
+        };
 
-        hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 53 55 54 48 49 50 51 52>; // Right side keys
-        hold-trigger-on-release;
+        double_shift: double_shift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
+            label = "DOUBLE_SHIFT";
+        };
+
+        brace: brace {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_ARROW>;
+            label = "BRACE";
+        };
+
+        brackets: brackts {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LEFT_BRACKET) &kp LS(RIGHT_BRACKET) &kp LEFT_ARROW>;
+            label = "BRACKTS";
+        };
     };
 
-    // Home row mods - Right hand
+    combos {
+        compatible = "zmk,combos";
+        timeout-ms = <20>;
+        require-prior-idle-ms = <250>;
 
-    hmr: home_row_mod_right {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        require-prior-idle-ms = <125>;
-        tapping-term-ms = <280>;
-        quick-tap-ms = <175>;
-        bindings = <&sk>, <&kp>;
+        // Studio Unlock Combo - all three right thumb keys
 
-        hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 54 53 55>; // Left side keys
-        hold-trigger-on-release;
+        enter1 {
+            bindings = <&kp LC(ENTER)>;
+            key-positions = <48 53>;
+            timeout-ms = <100>;
+        };
+
+        powerrun {
+            bindings = <&kp LC(SPACE)>;
+            key-positions = <48 49>;
+            timeout-ms = <100>;
+        };
+
+        mb3 {
+            bindings = <&kp LA(LC(DELETE))>;
+            key-positions = <48 36>;
+            timeout-ms = <100>;
+        };
+
+        lock1 {
+            bindings = <&kp LA(LC(DELETE))>;
+            key-positions = <51 55>;
+            timeout-ms = <100>;
+        };
+
+        mb2 {
+            bindings = <&kp DELETE>;
+            key-positions = <48 12>;
+            timeout-ms = <100>;
+        };
+
+        mb1 {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <48 24>;
+            timeout-ms = <100>;
+        };
+
+        ps2 {
+            bindings = <&kp LS(PRINTSCREEN)>;
+            key-positions = <48 54 53 49>;
+            timeout-ms = <100>;
+        };
+
+        sender2 {
+            bindings = <&kp ESCAPE>;
+            key-positions = <49 48 53>;
+            timeout-ms = <100>;
+        };
+
+        caps2 {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <48 50 54>;
+            timeout-ms = <100>;
+        };
     };
 
-    // chain sticky key modifiers
+    keymap {
+        compatible = "zmk,keymap";
 
-    skq: sticky_key_quick_release {
-        compatible = "zmk,behavior-sticky-key";
-        #binding-cells = <1>;
-        bindings = <&kp>;
-        release-after-ms = <1000>;
-        quick-release;
-        ignore-modifiers;
-    };
-
-    // CAPSLOCK on a single tap, LSHIFT on a single press and hold, and LCTRL when the tap-dance is pressed twice
-
-    td_cs: caps_shift_tap_dance {
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp LEFT_SHIFT>, <&double_shift>, <&kp CAPSLOCK>;
-    };
-
-    graesc: grave_escape {
-        compatible = "zmk,behavior-mod-morph";
-        label = "GRAVE_ESCAPE";
-        bindings = <&kp ESCAPE>, <&kp GRAVE>;
-
-        #binding-cells = <0>;
-        mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RSFT|MOD_RCTL|MOD_RALT|MOD_RGUI)>;
-    };
-
-    tap_key_hold_mouse: tap_kp_hold_mkp {
-        compatible = "zmk,behavior-hold-tap";
-        label = "tap key, hold mouse key";
-        bindings = <&mkp>, <&kp>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <200>;
-        flavor = "tap-preferred";
-    };
-
-    mkp_mo: tap_mkp_hold_mo {
-        compatible = "zmk,behavior-hold-tap";
-        bindings = <&sl>, <&mkp>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <280>;
-        flavor = "balanced";
-    };
-
-    mkp_mkp: t_mkp_h_mkp {
-        compatible = "zmk,behavior-hold-tap";
-        bindings = <&mkp>, <&mkp>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <300>;
-        flavor = "balanced";
-    };
-
-    mt2: mod_tap_v2 {
-        compatible = "zmk,behavior-hold-tap";
-        bindings = <&kp>, <&kp>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <400>;
-        quick-tap-ms = <175>;
-        require-prior-idle-ms = <125>;
-        flavor = "tap-preferred";
-        hold-trigger-on-release;
-    };
-
-    kp_sl: tap_kp_hold_sl {
-        compatible = "zmk,behavior-hold-tap";
-        label = "TAP_KP_HOLD_SL";
-        bindings = <&sl>, <&kp>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <280>;
-        flavor = "balanced";
-        quick-tap-ms = <500>;
-        require-prior-idle-ms = <125>;
-        hold-trigger-on-release;
-    };
-
-    tap_gresc_hold_kp: tap_gresc_hold_kp {
-        compatible = "zmk,behavior-hold-tap";
-        label = "TAP_GRESC_HOLD_KP";
-        bindings = <&kp>, <&gresc>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <500>;
-        quick-tap-ms = <200>;
-        require-prior-idle-ms = <200>;
-        flavor = "balanced";
-    };
-
-    kp_sk: tap_kp_hold_sk {
-        compatible = "zmk,behavior-hold-tap";
-        label = "TAP_KP_HOLD_SK";
-        bindings = <&sk>, <&kp>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <280>;
-        flavor = "balanced";
-        quick-tap-ms = <175>;
-        require-prior-idle-ms = <125>;
-        hold-trigger-on-release;
-    };
-
-    mice_key: tap_mice_hold_key {
-        compatible = "zmk,behavior-hold-tap";
-        label = "tap_mice_hold_key";
-        bindings = <&kp>, <&mkp>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <200>;
-        flavor = "tap-preferred";
-    };
-
-    hr: home_row {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        require-prior-idle-ms = <125>;
-        tapping-term-ms = <280>;
-        quick-tap-ms = <500>;
-        bindings = <&sk>, <&kp>;
-
-        hold-trigger-on-release;
-        label = "home row";
-    };
-
-    macro_mt: macro_mt {
-        compatible = "zmk,behavior-hold-tap";
-        bindings = <&brackets>, <&brace>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <400>;
-        quick-tap-ms = <175>;
-        require-prior-idle-ms = <125>;
-        flavor = "tap-preferred";
-        hold-trigger-on-release;
-        label = "MACRO_MT";
-    };
-
-    mo_sl: mo_sl {
-        compatible = "zmk,behavior-hold-tap";
-        label = "MO_SL";
-        bindings = <&sl>, <&mo>;
-
-        #binding-cells = <2>;
-        tapping-term-ms = <280>;
-        flavor = "balanced";
-        quick-tap-ms = <500>;
-        require-prior-idle-ms = <125>;
-        hold-trigger-on-release;
-    };
-};
-
-macros {
-    // Ctrl+Alt+Cmd macro
-    // Ctrl+Shift+Alt macro
-    // Ctrl+Alt macro
-    // Hold Ctrl+Cmd+Left Click while key is pressed (for mouse drag window actions)
-
-    lock: lock {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp LC(LA(DELETE))>;
-        label = "LOCK";
-    };
-
-    double_shift: double_shift {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
-        label = "DOUBLE_SHIFT";
-    };
-
-    brace: brace {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_ARROW>;
-        label = "BRACE";
-    };
-
-    brackets: brackts {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp LS(LEFT_BRACKET) &kp LS(RIGHT_BRACKET) &kp LEFT_ARROW>;
-        label = "BRACKTS";
-    };
-};
-
-combos {
-    compatible = "zmk,combos";
-    timeout-ms = <20>;
-    require-prior-idle-ms = <250>;
-
-    // Studio Unlock Combo - all three right thumb keys
-
-    enter1 {
-        bindings = <&kp LC(ENTER)>;
-        key-positions = <48 53>;
-        timeout-ms = <100>;
-    };
-
-    powerrun {
-        bindings = <&kp LC(SPACE)>;
-        key-positions = <48 49>;
-        timeout-ms = <100>;
-    };
-
-    mb3 {
-        bindings = <&kp LA(LC(DELETE))>;
-        key-positions = <48 36>;
-        timeout-ms = <100>;
-    };
-
-    lock1 {
-        bindings = <&kp LA(LC(DELETE))>;
-        key-positions = <51 55>;
-        timeout-ms = <100>;
-    };
-
-    mb2 {
-        bindings = <&kp DELETE>;
-        key-positions = <48 12>;
-        timeout-ms = <100>;
-    };
-
-    mb1 {
-        bindings = <&kp CAPSLOCK>;
-        key-positions = <48 24>;
-        timeout-ms = <100>;
-    };
-
-    ps2 {
-        bindings = <&kp LS(PRINTSCREEN)>;
-        key-positions = <48 54 53 49>;
-        timeout-ms = <100>;
-    };
-
-    sender2 {
-        bindings = <&kp ESCAPE>;
-        key-positions = <49 48 53>;
-        timeout-ms = <100>;
-    };
-
-    caps2 {
-        bindings = <&kp CAPSLOCK>;
-        key-positions = <48 50 54>;
-        timeout-ms = <100>;
-    };
-};
-
-keymap {
-    compatible = "zmk,keymap";
-
-    base {
-        bindings = <
+        base {
+            bindings = <
 &kp ESCAPE  &mt2 LS(N1) N1  &mt2 LS(N2) N2  &mt2 LS(N3) N3      &mt2 LS(NUMBER_4) NUMBER_4  &mt2 LS(N5) N5               &mt2 LS(N6) N6        &mt2 LS(N7) N7                &mt2 LS(N8) N8        &mt2 LS(N9) N9          &mt2 LS(N0) N0                      &mt2 LS(EQUAL) EQUAL
 &kp TAB     &kp Q           &kp W           &kp E               &kp R                       &kp T                        &kp Y                 &kp U                         &kp I                 &kp O                   &kp P                               &mt2 LS(MINUS) MINUS
 &kp CAPS    &kp A           &kp S           &kp D               &kp F                       &kp G                        &kp H                 &kp J                         &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON        &mt2 LS(SQT) SQT
 &kp ENTER   &kp Z           &kp X           &kp C               &kp V                       &kp B                        &kp N                 &kp M                         &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(LEFT_BRACKET) LEFT_BRACKET  &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
                                             &kp_sl 1 BACKSPACE  &hr LEFT_CONTROL SPACE      &hr LEFT_SHIFT LEFT_SHIFT    &mt2 LS(SLASH) SLASH  &mt2 LS(BACKSLASH) BACKSLASH
                                                                 &hr LEFT_GUI ENTER          &hr LEFT_ALT LEFT_ALT        &mt2 LS(GRAVE) GRAVE
-        >;
+            >;
 
-        sensor-bindings =
-            <&scroll_vertical_encoder>,
-            // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-            <&scroll_horizontal_encoder>;
+            sensor-bindings =
+                <&scroll_vertical_encoder>,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                <&scroll_horizontal_encoder>;
 
-        // 编码器2：左右滚动
-    };
+            // 编码器2：左右滚动
+        };
 
-    layer_1 {
-        bindings = <
+        layer_1 {
+            bindings = <
 &kp F1              &kp F2          &kp F3          &kp F4        &kp F5           &kp F6    &kp F7          &kp F8          &kp F9        &kp F10          &kp F11   &kp F12
 &kp DELETE          &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp HOME  &kp PAGE_UP
 &kp CAPSLOCK        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp END   &kp PAGE_DOWN
 &kp LA(LC(DELETE))  &trans          &trans          &trans        &trans           &trans    &trans          &trans          &trans        &trans           &trans    &trans
                                                     &trans        &trans           &trans    &trans          &trans
                                                                   &kp LC(ENTER)    &trans    &trans
-        >;
-    };
-};
+            >;
+        };
 
+        layer_2 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
+            >;
+        };
+    };
 };
