@@ -382,12 +382,12 @@
 &kp BACKSPACE  &kp A           &kp S           &kp D           &kp F                           &kp G                         &kp H                 &kp J                         &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON        &mt2 LS(SQT) SQT
 &kp ENTER      &kp Z           &kp X           &kp C           &kp V                           &kp B                         &kp N                 &kp M                         &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(LEFT_BRACKET) LEFT_BRACKET  &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
                                                &kp_sl 1 SPACE  &hml LEFT_CONTROL LEFT_CONTROL  &hml LEFT_SHIFT LEFT_SHIFT    &mt2 LS(SLASH) SLASH  &mt2 LS(BACKSLASH) BACKSLASH
-                                                               &hml LEFT_GUI LEFT_GUI          &hml LEFT_ALT LEFT_ALT        &mt2 LS(GRAVE) GRAVE
+                                                               &kp LEFT_GUI                    &hml LEFT_ALT LEFT_ALT        &mt2 LS(GRAVE) GRAVE
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
