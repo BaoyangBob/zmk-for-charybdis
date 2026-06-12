@@ -325,7 +325,7 @@
 
         powerrun {
             bindings = <&kp LC(SPACE)>;
-            key-positions = <48 49>;
+            key-positions = <48 50 54>;
             timeout-ms = <100>;
         };
 
@@ -365,9 +365,9 @@
             timeout-ms = <100>;
         };
 
-        caps2 {
+        backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <48 50 54>;
+            key-positions = <48 49>;
             timeout-ms = <100>;
         };
     };
@@ -387,7 +387,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
