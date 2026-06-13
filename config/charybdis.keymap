@@ -36,6 +36,12 @@
     trigger-period-ms = <16>;
 };
 
+&sk {
+    release-after-ms = <800>;
+    quick-release;
+    lazy;
+};
+
 / {
     // 上下滚动编码器行为
 
@@ -377,17 +383,17 @@
 
         base {
             bindings = <
-&kp ESCAPE     &mt2 LS(N1) N1  &mt2 LS(N2) N2  &mt2 LS(N3) N3  &mt2 LS(NUMBER_4) NUMBER_4      &mt2 LS(N5) N5                &mt2 LS(N6) N6        &mt2 LS(N7) N7                &mt2 LS(N8) N8        &mt2 LS(N9) N9          &mt2 LS(N0) N0                      &mt2 LS(EQUAL) EQUAL
-&kp TAB        &kp Q           &kp W           &kp E           &kp R                           &kp T                         &kp Y                 &kp U                         &kp I                 &kp O                   &kp P                               &mt2 LS(MINUS) MINUS
-&kp BACKSPACE  &kp A           &kp S           &kp D           &kp F                           &kp G                         &kp H                 &kp J                         &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON        &mt2 LS(SQT) SQT
-&kp ENTER      &kp Z           &kp X           &kp C           &kp V                           &kp B                         &kp N                 &kp M                         &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(LEFT_BRACKET) LEFT_BRACKET  &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
-                                               &kp_sl 1 SPACE  &hml LEFT_CONTROL LEFT_CONTROL  &hml LEFT_SHIFT LEFT_SHIFT    &mt2 LS(SLASH) SLASH  &mt2 LS(BACKSLASH) BACKSLASH
-                                                               &kp LEFT_GUI                    &hml LEFT_ALT LEFT_ALT        &mt2 LS(GRAVE) GRAVE
+&kp ESCAPE     &mt2 LS(N1) N1  &mt2 LS(N2) N2  &mt2 LS(N3) N3  &mt2 LS(NUMBER_4) NUMBER_4      &mt2 LS(N5) N5            &mt2 LS(N6) N6        &mt2 LS(N7) N7                &mt2 LS(N8) N8        &mt2 LS(N9) N9          &mt2 LS(N0) N0                      &mt2 LS(EQUAL) EQUAL
+&kp TAB        &kp Q           &kp W           &kp E           &kp R                           &kp T                     &kp Y                 &kp U                         &kp I                 &kp O                   &kp P                               &mt2 LS(MINUS) MINUS
+&kp BACKSPACE  &kp A           &kp S           &kp D           &kp F                           &kp G                     &kp H                 &kp J                         &kp K                 &kp L                   &mt2 LS(SEMICOLON) SEMICOLON        &mt2 LS(SQT) SQT
+&kp ENTER      &kp Z           &kp X           &kp C           &kp V                           &kp B                     &kp N                 &kp M                         &mt2 LS(COMMA) COMMA  &mt2 LS(PERIOD) PERIOD  &mt2 LS(LEFT_BRACKET) LEFT_BRACKET  &mt2 LS(RIGHT_BRACKET) RIGHT_BRACKET
+                                               &kp_sl 1 SPACE  &hml LEFT_CONTROL LEFT_CONTROL  &hml LEFT_WIN LEFT_WIN    &mt2 LS(SLASH) SLASH  &mt2 LS(BACKSLASH) BACKSLASH
+                                                               &hml LEFT_SHIFT LEFT_SHIFT      &hml LEFT_ALT LEFT_ALT    &mt2 LS(GRAVE) GRAVE
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
