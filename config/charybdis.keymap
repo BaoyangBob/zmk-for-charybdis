@@ -412,7 +412,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -421,9 +421,9 @@
         layer_1 {
             bindings = <
 &kp F1              &kp F2     &kp F3     &kp F4         &kp F5     &kp F6       &kp F7          &kp F8          &kp F9        &kp F10          &kp F11   &kp F12
-&kp DELETE          &trans     &kp ENTER  &trans         &trans     &trans       &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp HOME  &kp PAGE_UP
+&kp DELETE          &trans     &trans     &kp ENTER      &trans     &kp LC(T)    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp HOME  &kp PAGE_UP
 &kp CAPSLOCK        &kp LC(A)  &kp SPACE  &kp BACKSPACE  &kp LC(F)  &trans       &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp END   &kp PAGE_DOWN
-&kp LA(LC(DELETE))  &kp LC(Z)  &kp LC(X)  &kp LC(C)      &kp LC(V)  &kp LC(B)    &trans          &trans          &trans        &trans           &trans    &trans
+&kp LA(LC(DELETE))  &kp LC(Z)  &kp LC(X)  &kp LC(C)      &kp LC(V)  &kp LC(B)    &kp LC(N)       &trans          &trans        &trans           &trans    &trans
                                           &trans         &trans     &trans       &trans          &trans
                                                          &trans     &trans       &trans
             >;
