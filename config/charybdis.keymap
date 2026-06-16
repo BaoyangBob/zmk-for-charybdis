@@ -327,13 +327,13 @@
         enter1 {
             bindings = <&kp LC(ENTER)>;
             key-positions = <48 53>;
-            timeout-ms = <100>;
+            timeout-ms = <120>;
         };
 
         powerrun {
             bindings = <&kp LC(SPACE)>;
             key-positions = <48 50 54>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         mb3 {
@@ -351,55 +351,55 @@
         mb2 {
             bindings = <&kp DELETE>;
             key-positions = <48 12>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
-        mb1 {
+        caps {
             bindings = <&kp CAPSLOCK>;
             key-positions = <48 24>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         ps2 {
             bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 54 53 49>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         sender2 {
             bindings = <&kp LC(SPACE)>;
             key-positions = <49 48 53>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <48 27>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         space1 {
             bindings = <&kp SPACE>;
             key-positions = <48 26>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         space2 {
             bindings = <&kp ENTER>;
             key-positions = <48 28>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         enter2 {
             bindings = <&kp ENTER>;
             key-positions = <48 15>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
 
         enter3 {
             bindings = <&kp ENTER>;
             key-positions = <48 14>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
         };
     };
 
@@ -418,7 +418,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
