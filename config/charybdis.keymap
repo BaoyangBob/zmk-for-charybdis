@@ -326,19 +326,19 @@
 
         enter1 {
             bindings = <&kp LC(ENTER)>;
-            key-positions = <48 53>;
+            key-positions = <53 49>;
             timeout-ms = <120>;
         };
 
         powerrun {
             bindings = <&kp LC(SPACE)>;
-            key-positions = <48 50 54>;
+            key-positions = <48 49>;
             timeout-ms = <200>;
         };
 
         mb3 {
             bindings = <&kp LA(LC(DELETE))>;
-            key-positions = <48 36>;
+            key-positions = <24 53>;
             timeout-ms = <100>;
         };
 
@@ -346,12 +346,6 @@
             bindings = <&kp LA(LC(DELETE))>;
             key-positions = <51 55>;
             timeout-ms = <100>;
-        };
-
-        mb2 {
-            bindings = <&kp DELETE>;
-            key-positions = <48 12>;
-            timeout-ms = <200>;
         };
 
         caps {
@@ -412,7 +406,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
