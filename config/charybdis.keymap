@@ -336,57 +336,15 @@
             timeout-ms = <200>;
         };
 
-        mb3 {
+        lock {
             bindings = <&kp LA(LC(DELETE))>;
             key-positions = <24 53>;
-            timeout-ms = <100>;
-        };
-
-        lock1 {
-            bindings = <&kp LA(LC(DELETE))>;
-            key-positions = <51 55>;
-            timeout-ms = <100>;
-        };
-
-        caps {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <48 24>;
             timeout-ms = <200>;
         };
 
-        ps2 {
+        ps {
             bindings = <&kp LS(PRINTSCREEN)>;
-            key-positions = <48 54 53 49>;
-            timeout-ms = <200>;
-        };
-
-        sender2 {
-            bindings = <&kp LC(SPACE)>;
-            key-positions = <49 48 53>;
-            timeout-ms = <200>;
-        };
-
-        backspace {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <48 27>;
-            timeout-ms = <200>;
-        };
-
-        space1 {
-            bindings = <&kp SPACE>;
-            key-positions = <48 15>;
-            timeout-ms = <200>;
-        };
-
-        enter2 {
-            bindings = <&kp ENTER>;
-            key-positions = <48 13>;
-            timeout-ms = <200>;
-        };
-
-        enter3 {
-            bindings = <&kp ENTER>;
-            key-positions = <48 14>;
+            key-positions = <48 54 53 49 50>;
             timeout-ms = <200>;
         };
     };
@@ -406,7 +364,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
