@@ -324,7 +324,7 @@
 
         // Studio Unlock Combo - all three right thumb keys
 
-        enter1 {
+        sender {
             bindings = <&kp LC(ENTER)>;
             key-positions = <53 49>;
             timeout-ms = <120>;
@@ -336,8 +336,8 @@
             timeout-ms = <200>;
         };
 
-        lock {
-            bindings = <&kp LA(LC(DELETE))>;
+        enter {
+            bindings = <&kp ENTER>;
             key-positions = <24 53>;
             timeout-ms = <200>;
         };
@@ -345,6 +345,24 @@
         ps {
             bindings = <&kp LS(PRINTSCREEN)>;
             key-positions = <48 54 53 49 50>;
+            timeout-ms = <200>;
+        };
+
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <24 48>;
+            timeout-ms = <200>;
+        };
+
+        space {
+            bindings = <&kp SPACE>;
+            key-positions = <24 49>;
+            timeout-ms = <200>;
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <24 50>;
             timeout-ms = <200>;
         };
     };
@@ -364,7 +382,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
