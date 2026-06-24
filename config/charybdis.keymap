@@ -365,6 +365,41 @@
             key-positions = <24 50>;
             timeout-ms = <200>;
         };
+
+        copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <49 39>;
+        };
+
+        paste {
+            bindings = <&kp LC(V)>;
+            key-positions = <49 40>;
+        };
+
+        cut {
+            bindings = <&kp LC(X)>;
+            key-positions = <49 38>;
+        };
+
+        undo {
+            bindings = <&kp LC(Z)>;
+            key-positions = <49 37>;
+        };
+
+        select-all {
+            bindings = <&kp LC(A)>;
+            key-positions = <49 25>;
+        };
+
+        find {
+            bindings = <&kp LC(F)>;
+            key-positions = <49 28>;
+        };
+
+        save {
+            bindings = <&kp LC(S)>;
+            key-positions = <49 26>;
+        };
     };
 
     keymap {
@@ -382,7 +417,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
